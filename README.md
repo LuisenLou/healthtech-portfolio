@@ -13,7 +13,7 @@ Repositorio que contiene el diseño, la documentación funcional y la interfaz d
 - Arquitectura orientada a especificaciones funcionales (Gherkin, flujos de usuario, matrices de riesgo).
 
 ## 🌐 Enlace en vivo
-Puedes ver la página funcionando en [GitHub Pages](LuisenLou.github.io/healthtech-portfolio/).
+Puedes ver la página funcionando en [GitHub Pages](https://LuisenLou.github.io/healthtech-portfolio/).
 
 
 # HealthTech Functional & Clinical Portfolio (English)
@@ -31,4 +31,4 @@ Repository containing the design, functional documentation, and presentation int
 - Architecture oriented toward functional specifications (Gherkin, user flows, risk matrices).
 
 ## 🌐 Live link
-You can see the page running at [GitHub Pages](LuisenLou.github.io/healthtech-portfolio/).
+You can see the page running at [GitHub Pages](https://LuisenLou.github.io/healthtech-portfolio/).
