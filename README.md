@@ -6,7 +6,7 @@ Repositorio que contiene el diseño, la documentación funcional y la interfaz d
 - **Caso 1:** Optimización de Alertas de Urgencia Vital en AP (Flujos por turnos y doble check).
 - **Caso 2:** Digitalización de Electrocardiogramas y Convivencia con Sistemas Legacy (APMadrid).
 - **Caso 3:** El puente funcional-técnico (Traducción de requerimientos clínicos a especificaciones de desarrollo).
-- - **Caso 4:** Automatización de Inventario de Sensores con PowerShell y OCR (Solución de campo en entorno clínico restringido).
+- **Caso 4:** Automatización de Inventario de Sensores con PowerShell y OCR (Solución de campo en entorno clínico restringido).
 
 ## 🛠️ Tecnologías utilizadas
 - HTML5 / Tailwind CSS (Diseño editorial y ultraligero).
