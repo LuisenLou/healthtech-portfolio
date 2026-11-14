@@ -14,3 +14,19 @@ Repositorio que contiene el diseño, la documentación funcional y la interfaz d
 
 ## 🌐 Enlace en vivo
 Puedes ver la página funcionando en [GitHub Pages](LuisenLou.github.io/healthtech-portfolio/).
+
+
+Repository containing the design, functional documentation, and presentation interface for case studies in the healthcare technology (*HealthTech*) sector. This project serves as a showcase to demonstrate the intersection between real Primary Care healthcare workflows and software engineering.
+
+## 🚀 Portfolio Contents
+- **Case 1:** Optimization of Life-Threatening Emergency Alerts in PC (Shift-based workflows and double check).
+- **Case 2:** Digitization of Electrocardiograms and Coexistence with Legacy Systems (APMadrid).
+- **Case 3:** The functional-technical bridge (Translation of clinical requirements into development specifications).
+
+## 🛠️ Technologies used
+- HTML5 / Tailwind CSS (Editorial and ultralight design).
+- Native JavaScript for clean interactivity.
+- Architecture oriented toward functional specifications (Gherkin, user flows, risk matrices).
+
+## 🌐 Live link
+You can see the page running at [GitHub Pages](LuisenLou.github.io/healthtech-portfolio/).
