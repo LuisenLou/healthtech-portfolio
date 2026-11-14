@@ -234,6 +234,32 @@
                             </button>
                         </div>
                     </article>
+                    
+                    <article class="editorial-card bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-mono text-xs font-medium">SPEC-04</span>
+                                <span data-i18n="card4_badge" class="text-xs font-medium text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full">Automatización Real</span>
+                            </div>
+                            <h3 data-i18n="card4_title" class="text-lg font-semibold text-slate-900 leading-snug mb-2.5">
+                                Automatización de Inventario de Sensores (Abbott/Dexcom) con PowerShell y OCR
+                            </h3>
+                            <p data-i18n="card4_desc" class="text-sm text-slate-600 leading-relaxed mb-5">
+                                Solución implementada en entorno real de Atención Primaria para eliminar la transcripción manual de folios en Excel mediante script offline, procesamiento OCR y validación de códigos CIPA.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100">
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">PowerShell Offline</span>
+                                <span class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">OCR / Escáner</span>
+                                <span data-i18n="card4_tag3" class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">Validación CIPA</span>
+                            </div>
+                            <button onclick="openCaseModal('case4')" class="w-full py-2.5 px-4 rounded-lg bg-slate-50 hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 hover:border-slate-900 text-xs font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                                <span data-i18n="card_btn">Leer Especificación Completa</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
 
                 </div>
             </div>
@@ -582,7 +608,11 @@
                 modal_th_mit: "Medida de Mitigación Funcional",
                 modal_sec5: "5. Criterio de Aceptación (Gherkin QA)",
                 modal_sec6: "6. Modelo de Trazabilidad (SQL)",
-                modal_author: "Autor: Luis · Documentación Funcional HealthTech"
+                modal_author: "Autor: Luis · Documentación Funcional HealthTech",
+                card4_badge: "Automatización Real",
+                card4_title: "Automatización de Inventario de Sensores (Abbott/Dexcom) con PowerShell y OCR",
+                card4_desc: "Solución implementada en entorno real de Atención Primaria para eliminar la transcripción manual de folios en Excel mediante script offline, procesamiento OCR y validación de códigos CIPA.",
+                card4_tag3: "Validación CIPA",
             },
             en: {
                 page_title: "Luis — Clinical Nurse & HealthTech Functional Consultant",
@@ -676,7 +706,11 @@
                 modal_th_mit: "Functional Mitigation Measure",
                 modal_sec5: "5. Acceptance Criteria (Gherkin QA)",
                 modal_sec6: "6. Traceability Data Model (SQL)",
-                modal_author: "Author: Luis · HealthTech Functional Documentation"
+                modal_author: "Author: Luis · HealthTech Functional Documentation",
+                card4_badge: "Real-World Automation",
+                card4_title: "Sensor Inventory Automation (Abbott/Dexcom) via PowerShell & OCR",
+                card4_desc: "Production-ready solution deployed in Primary Care to eliminate manual Excel transcription using an offline script, OCR scanning, and CIPA ID validation.",
+                card4_tag3: "CIPA Validation",
             }
         };
 
@@ -749,6 +783,29 @@
                     ],
                     gherkin: 'Dado que el monitor envía un mensaje HL7 ORU^R01 con códigos LOINC válidos para un episodio activo,\nCuando el enfermero abre la hoja de constantes del paciente,\nEntonces los valores aparecen precargados como "Pendiente de validar" listos para confirmación en un clic.',
                     dataModel: 'auditoria_integracion_constantes (id_integracion PK, nhc_paciente, id_episodio, codigo_loinc, valor_medido, estado_validacion, id_validador)'
+                },
+                case4: {
+                    id: 'SPEC-04',
+                    category: 'Automatización de Procesos y Fit-Gap en Campo',
+                    title: 'Automatización de Inventario de Sensores (Abbott / Dexcom) mediante PowerShell y OCR',
+                    context: 'En los Centros de Salud de Atención Primaria, la recepción y registro de folios físicos de sensores continuos (Abbott Freestyle / Dexcom) exigía al personal de enfermería una entrada manual, repetitiva y tediosa en hojas de Excel. Esto consumía tiempo asistencial crítico e incrementaba de forma notable el riesgo de error humano en la transcripción de códigos CIPA y lotes.',
+                    constraints: [
+                        'Entorno informático de la administración pública (SERMAS) estrictamente cerrado y "capado", sin permisos para instalar dependencias ni lenguajes de programación externos (como Python o Node.js).',
+                        'Necesidad absoluta de trabajar en modo local y offline para garantizar la seguridad y privacidad de los datos de los pacientes.',
+                        'Requerimiento de un método rápido y automatizado que no alterara el flujo diario de trabajo en la consulta.'
+                    ],
+                    solution: [
+                        '<strong>Desarrollo de Script Nativo en PowerShell:</strong> Aprovechamiento de PowerShell (incluido de serie en Windows) para construir una herramienta ejecutable offline, segura y sin requerir instalaciones.',
+                        '<strong>Pipeline de Procesamiento Documental:</strong> Lectura de ficheros de texto generados tras el escaneo OCR de los folios físicos en los dispositivos del centro.',
+                        '<strong>Validación y Volcado Estructurado:</strong> Algoritmo de detección del mes de envío, validación/autocorrección de códigos CIPA no estándar, clasificación por fabricante (Abbott vs. Dexcom) y volcado automático al Excel maestro con generación de histórico y resúmenes de unidades.'
+                    ],
+                    risks: [
+                        { risk: 'Restricciones de seguridad del parque informático', mitigation: 'Uso exclusivo de utilidades nativas de Windows (PowerShell) sin dependencias externas.' },
+                        { risk: 'Formatos CIPA erróneos o incompletos en OCR', mitigation: 'Mecanismo de detección de anomalías con solicitud de corrección interactiva.' },
+                        { risk: 'Pérdida de datos originales o sobreescritura', mitigation: 'Traslado automático de PDFs procesados a carpetas de histórico y adición de filas al final de la tabla sin alterar registros previos.' }
+                    ],
+                    gherkin: 'Dado que el sistema procesa un fichero TXT obtenido por OCR de los folios de sensores,\nCuando el script valida correctamente los códigos CIPA y detecta el mes de envío,\nEntonces actualiza de forma automática el Excel maestro del proveedor correspondiente y archiva el documento original.',
+                    dataModel: 'inventory_automation_log (id_proceso PK, fecha_ejecucion, tipo_sensor [Abbott/Dexcom], cipa_validado, unidades_procesadas, estado_volcado)'
                 }
             },
             en: {
@@ -819,6 +876,29 @@
                     ],
                     gherkin: 'Given the monitor sends an HL7 ORU^R01 message with valid LOINC codes for an active episode,\nWhen the nurse opens the patient\'s vital signs flowsheet,\nThen the values appear pre-loaded as "Pending Validation" ready for one-click sign-off.',
                     dataModel: 'vitals_integration_audit (integration_id PK, patient_mrn, episode_id, loinc_code, measured_value, validation_status, validator_id)'
+                },
+                case4: {
+                    id: 'SPEC-04',
+                    category: 'Process Automation & Field Fit-Gap Analysis',
+                    title: 'Sensor Inventory Automation (Abbott / Dexcom) via PowerShell & OCR',
+                    context: 'In Primary Care Health Centers, receiving and registering physical sheets for continuous glucose sensors (Abbott Freestyle / Dexcom) forced nursing staff into manual, tedious, and repetitive data entry into Excel spreadsheets. This consumed critical clinical time and significantly increased the risk of human error when transcribing CIPA identification codes.',
+                    constraints: [
+                        'Strictly locked-down public health IT environment (SERMAS) with no administrative permissions to install external dependencies or non-native programming languages (such as Python or Node.js).',
+                        'Absolute requirement to operate strictly locally and offline to ensure data security and patient privacy.',
+                        'Need for a fast, automated method that would not disrupt the daily clinical workflow.'
+                    ],
+                    solution: [
+                        '<strong>Native PowerShell Scripting:</strong> Leveraging PowerShell (built into Windows) to build an offline, secure executable utility requiring zero installations.',
+                        '<strong>Document Processing Pipeline:</strong> Automated ingestion of text files generated from OCR scanning of physical sensor delivery sheets.',
+                        '<strong>Validation & Structured Ingestion:</strong> Algorithm detecting submission months, validating/auto-correcting non-standard CIPA codes, categorizing by manufacturer (Abbott vs. Dexcom), and automatically appending records to the master Excel sheet with audit trail generation.'
+                    ],
+                    risks: [
+                        { risk: 'IT security and restriction policies', mitigation: 'Exclusive reliance on native Windows utilities (PowerShell) with zero external dependencies.' },
+                        { risk: 'Malformed or erroneous CIPA formats from OCR', mitigation: 'Anomaly detection workflow prompting interactive human correction.' },
+                        { risk: 'Risk of original data loss or spreadsheet corruption', mitigation: 'Automatic archival of processed PDFs into history folders and safe row-appending past existing records.' }
+                    ],
+                    gherkin: 'Given the script processes an OCR-generated TXT file from sensor delivery sheets,\nWhen the script successfully validates CIPA codes and detects the target submission month,\nThen it automatically updates the corresponding master Excel ledger and archives the source document.',
+                    dataModel: 'inventory_automation_log (process_id PK, execution_timestamp, sensor_type [Abbott/Dexcom], validated_cipa, units_processed, status)'
                 }
             }
         };
