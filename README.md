@@ -13,6 +13,23 @@ Repositorio que contiene el diseño, la documentación funcional y la interfaz d
 - JavaScript nativo para interactividad limpia.
 - Arquitectura orientada a especificaciones funcionales (Gherkin, flujos de usuario, matrices de riesgo).
 
+
+## 🧩 Decisiones de alcance
+
+Este portfolio prioriza **claridad funcional sobre complejidad técnica**.
+Decisiones conscientes:
+
+- **HTML estático + Tailwind CDN**: el objetivo es que la documentación
+  funcional sea legible y desplegable en 0 fricción. No hay backend
+  porque no hay estado que persistir.
+- **JS vanilla**: la interactividad es presentacional (navegación entre
+  casos, filtros). Framework innecesario para el alcance.
+- **Sin tests**: no hay lógica de negocio que testear. Los "tests"
+  aquí son los escenarios Gherkin documentados.
+
+👉 Si buscas un ejemplo de arquitectura escalable, este no es el repo.
+   Si buscas un ejemplo de traducción clínico-técnica, sí.
+
 ## 🌐 Enlace en vivo
 Puedes ver la página funcionando en [GitHub Pages](https://LuisenLou.github.io/healthtech-portfolio/).
 
@@ -37,6 +54,18 @@ Repository containing the design, functional documentation, and presentation int
 - HTML5 / Tailwind CSS (Editorial and ultralight design).
 - Native JavaScript for clean interactivity.
 - Architecture oriented toward functional specifications (Gherkin, user flows, risk matrices).
+
+# 🧩 Scope Decisions
+
+This portfolio prioritizes **functional clarity over technical complexity**.
+Conscious decisions:
+
+- **Static HTML + Tailwind CDN**: the goal is for the functional documentation to be legible and deployable with zero friction. There is no backend because there is no state to persist.
+- **Vanilla JS**: the interactivity is presentational (navigation between cases, filters). A framework is unnecessary for this scope.
+- **No tests**: there is no business logic to test. The "tests" here are the documented Gherkin scenarios.
+
+👉 If you're looking for an example of scalable architecture, this is not the repo.
+   If you're looking for an example of clinical-technical translation, it is.
 
 ## 🌐 Live link
 You can see the page running at [GitHub Pages](https://LuisenLou.github.io/healthtech-portfolio/).
