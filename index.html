@@ -1,1 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis — Enfermero Clínico & Consultor Funcional HealthTech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        clinical: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                            900: '#0F172A',
+                        },
+                        surface: {
+                            bg: '#FAFAFA',
+                            card: '#FFFFFF',
+                            border: '#E2E8F0',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: #0F172A;
+            -webkit-font-smoothing: antialiased;
+        }
+        .editorial-card {
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+        }
+        .editorial-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 4px 10px -3px rgba(15, 23, 42, 0.03);
+            border-color: #CBD5E1;
+        }
+        .modal-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 selection:bg-sky-100 selection:text-sky-900">
 
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+        <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center font-semibold text-sm tracking-tight group-hover:bg-sky-600 transition-colors">
+                    L.
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-semibold text-slate-900 text-sm leading-tight">Luis</span>
+                    <span class="text-[11px] text-slate-500 font-medium tracking-wide">HealthTech Functional Analyst</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="#casos" data-i18n="nav_cases" class="hover:text-slate-900 transition-colors">Casos de Estudio</a>
+                <a href="#metodologia" data-i18n="nav_method" class="hover:text-slate-900 transition-colors">Metodología</a>
+                <a href="#perfil" data-i18n="nav_profile" class="hover:text-slate-900 transition-colors">Perfil Híbrido</a>
+            </nav>
+
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <button id="langToggleBtn" onclick="toggleLanguage()" aria-label="Switch language" class="px-2.5 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-800 font-mono text-xs font-semibold transition-colors cursor-pointer">
+                    EN
+                </button>
+                <a href="https://www.linkedin.com/in/luis-enrique-zegarra-pretell-752bba191" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-2 text-slate-500 hover:text-sky-700 hover:bg-slate-100 rounded-lg transition-colors">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69
+
+                </a>
+                <a href="#contacto" data-i18n="nav_contact" class="px-3.5 py-2 rounded-lg bg-slate-900 text-white text-xs sm:text-sm font-medium hover:bg-slate-800 transition-colors">
+                    Contactar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="pt-16 pb-20 sm:pt-24 sm:pb-28 border-b border-slate-200/70 bg-white">
+            <div class="max-w-5xl mx-auto px-5 sm:px-8">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200/80 text-sky-800 text-xs font-medium mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-sky-600"></span>
+                        <span data-i18n="hero_badge">Atención Primaria (SERMAS) · Desarrollo de Aplicaciones (DAM)</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-6">
+                        <span data-i18n="hero_title_1">Enfermero Clínico &amp;</span> <br class="hidden sm:inline">
+                        <span data-i18n="hero_title_2" class="text-sky-700">Consultor Funcional HealthTech</span>
+                    </h1>
+
+                    <p data-i18n="hero_desc" class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 font-normal">
+                        Actúo como puente operativo entre la realidad asistencial de los centros sanitarios y los equipos de ingeniería de software. Traduzco flujos clínicos complejos, restricciones de sistemas heredados (<strong>APMadrid</strong>) y requisitos de interoperabilidad (<strong>HL7 / FHIR</strong>) en especificaciones funcionales claras, viables y seguras para el paciente.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                        <a href="#casos" class="inline-flex justify-center items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors shadow-sm">
+                            <span data-i18n="hero_cta_primary">Ver Casos de Estudio</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <a href="#contacto" data-i18n="hero_cta_secondary" class="inline-flex justify-center items-center gap-2 px-5 py-3 rounded-lg bg-white text-slate-700 border border-slate-300 text-sm font-medium hover:bg-slate-50 hover:text-slate-900 transition-colors">
+                            Contactar / Solicitar CV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-14 pt-10 border-t border-slate-100">
+                    <div>
+                        <p data-i18n="pillar1_title" class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Dominio Asistencial</p>
+                        <p data-i18n="pillar1_desc" class="text-sm font-medium text-slate-800">Flujos reales en Atención Primaria, triaje, urgencias vitales y seguridad clínica.</p>
+                    </div>
+                    <div>
+                        <p data-i18n="pillar2_title" class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Análisis Fit-Gap &amp; Legacy</p>
+                        <p data-i18n="pillar2_desc" class="text-sm font-medium text-slate-800">Diseño de soluciones de compromiso viables frente a HCE heredadas y rígidas.</p>
+                    </div>
+                    <div>
+                        <p data-i18n="pillar3_title" class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Base Técnica DAM</p>
+                        <p data-i18n="pillar3_desc" class="text-sm font-medium text-slate-800">Interlocución directa con desarrollo: Java/Spring, SQL, APIs REST, HL7 y Gherkin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="casos" class="py-20 sm:py-24">
+            <div class="max-w-5xl mx-auto px-5 sm:px-8">
+                <div class="max-w-2xl mb-12">
+                    <span data-i18n="cases_eyebrow" class="text-xs font-semibold uppercase tracking-wider text-sky-700">Portfolio Funcional</span>
+                    <h2 data-i18n="cases_title" class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1 mb-3">
+                        Casos de Estudio y Especificaciones
+                    </h2>
+                    <p data-i18n="cases_subtitle" class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Documentación funcional basada en cuellos de botella reales detectados en consulta. Selecciona cada caso para inspeccionar el análisis <em>As-Is / To-Be</em>, la matriz de riesgos y los criterios de aceptación.
+                    </p>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <article class="editorial-card bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-mono text-xs font-medium">SPEC-01</span>
+                                <span data-i18n="card1_badge" class="text-xs font-medium text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full">Seguridad Clínica</span>
+                            </div>
+                            <h3 data-i18n="card1_title" class="text-lg font-semibold text-slate-900 leading-snug mb-2.5">
+                                Escalado de Alertas de Urgencia Vital en Atención Primaria
+                            </h3>
+                            <p data-i18n="card1_desc" class="text-sm text-slate-600 leading-relaxed mb-5">
+                                Sustitución de avisos telefónicos manuales por enrutamiento inteligente según turno de guardia, doble confirmación anti-errores y escalado automático al equipo de retén tras 10 segundos.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100">
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span data-i18n="card1_tag1" class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">Flujos Críticos</span>
+                                <span class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">Timeout 10s</span>
+                                <span data-i18n="card1_tag3" class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">Auditoría ENS</span>
+                            </div>
+                            <button onclick="openCaseModal('case1')" class="w-full py-2.5 px-4 rounded-lg bg-slate-50 hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 hover:border-slate-900 text-xs font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                                <span data-i18n="card_btn">Leer Especificación Completa</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="editorial-card bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-mono text-xs font-medium">SPEC-02</span>
+                                <span data-i18n="card2_badge" class="text-xs font-medium text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full">Sistemas Legacy</span>
+                            </div>
+                            <h3 data-i18n="card2_title" class="text-lg font-semibold text-slate-900 leading-snug mb-2.5">
+                                Digitalización de ECG y Convivencia con APMadrid
+                            </h3>
+                            <p data-i18n="card2_desc" class="text-sm text-slate-600 leading-relaxed mb-5">
+                                Eliminación del papel térmico y archivo manual mediante identificación por CIPA y exportación automatizada a repositorio en red securizado, evitando bloquear la HCE heredada.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100">
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">CIPA / NHC</span>
+                                <span class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">Workaround Legacy</span>
+                                <span class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">PDF/A</span>
+                            </div>
+                            <button onclick="openCaseModal('case2')" class="w-full py-2.5 px-4 rounded-lg bg-slate-50 hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 hover:border-slate-900 text-xs font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                                <span data-i18n="card_btn">Leer Especificación Completa</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="editorial-card bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-mono text-xs font-medium">SPEC-03</span>
+                                <span data-i18n="card3_badge" class="text-xs font-medium text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full">Interoperabilidad</span>
+                            </div>
+                            <h3 data-i18n="card3_title" class="text-lg font-semibold text-slate-900 leading-snug mb-2.5">
+                                Volcado Asistido de Constantes Vitales a HCE
+                            </h3>
+                            <p data-i18n="card3_desc" class="text-sm text-slate-600 leading-relaxed mb-5">
+                                Integración de monitores multiparamétricos mediante mensajería HL7/FHIR y codificación LOINC, incorporando una bandeja de pre-validación enfermera para filtrar lecturas artefactadas.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100">
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">HL7 ORU^R01</span>
+                                <span class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">LOINC</span>
+                                <span data-i18n="card3_tag3" class="text-[11px] font-medium text-slate-500 bg-slate-50 border border-slate-200/70 px-2 py-0.5 rounded">Pre-validación</span>
+                            </div>
+                            <button onclick="openCaseModal('case3')" class="w-full py-2.5 px-4 rounded-lg bg-slate-50 hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 hover:border-slate-900 text-xs font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                                <span data-i18n="card_btn">Leer Especificación Completa</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="metodologia" class="py-20 sm:py-24 bg-white border-y border-slate-200/70">
+            <div class="max-w-5xl mx-auto px-5 sm:px-8">
+                <div class="max-w-2xl mb-12">
+                    <span data-i18n="method_eyebrow" class="text-xs font-semibold uppercase tracking-wider text-sky-700">Proceso de Consultoría</span>
+                    <h2 data-i18n="method_title" class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1 mb-3">
+                        De la Consulta al Código
+                    </h2>
+                    <p data-i18n="method_subtitle" class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Un enfoque estructurado donde delimito claramente las fronteras del equipo: lidero la definición funcional y clínica (<strong>el "Qué" y el "Por qué"</strong>) para facilitar la arquitectura e implementación técnica de los desarrolladores (<strong>el "Cómo"</strong>).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 relative">
+                        <div class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs font-bold flex items-center justify-center mb-4 shadow-2xs">
+                            01
+                        </div>
+                        <span data-i18n="step1_eyebrow" class="inline-block text-[11px] font-semibold uppercase tracking-wider text-sky-700 mb-1">Fase Clínica · As-Is</span>
+                        <h3 data-i18n="step1_title" class="text-base font-semibold text-slate-900 mb-2">Detección en Consulta</h3>
+                        <p data-i18n="step1_desc" class="text-xs text-slate-600 leading-relaxed">
+                            Observación directa del flujo asistencial real, identificación de cuellos de botella, duplicidades de registro y puntos de fricción para el profesional sanitario.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 relative">
+                        <div class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs font-bold flex items-center justify-center mb-4 shadow-2xs">
+                            02
+                        </div>
+                        <span data-i18n="step2_eyebrow" class="inline-block text-[11px] font-semibold uppercase tracking-wider text-sky-700 mb-1">Viabilidad · Fit-Gap</span>
+                        <h3 data-i18n="step2_title" class="text-base font-semibold text-slate-900 mb-2">Análisis de Riesgos</h3>
+                        <p data-i18n="step2_desc" class="text-xs text-slate-600 leading-relaxed">
+                            Evaluación de restricciones del entorno (sistemas <em>legacy</em>, periféricos, carga asistencial) y negociación técnica con ingeniería para definir soluciones viables.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 relative">
+                        <div class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs font-bold flex items-center justify-center mb-4 shadow-2xs">
+                            03
+                        </div>
+                        <span data-i18n="step3_eyebrow" class="inline-block text-[11px] font-semibold uppercase tracking-wider text-sky-700 mb-1">Documentación · To-Be</span>
+                        <h3 data-i18n="step3_title" class="text-base font-semibold text-slate-900 mb-2">Especificación y Gherkin</h3>
+                        <p data-i18n="step3_desc" class="text-xs text-slate-600 leading-relaxed">
+                            Redacción de historias de usuario, reglas de negocio, esquemas de trazabilidad en base de datos y criterios de aceptación en formato Gherkin para QA.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 relative">
+                        <div class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs font-bold flex items-center justify-center mb-4 shadow-2xs">
+                            04
+                        </div>
+                        <span data-i18n="step4_eyebrow" class="inline-block text-[11px] font-semibold uppercase tracking-wider text-sky-700 mb-1">Entrega · Adopción</span>
+                        <h3 data-i18n="step4_title" class="text-base font-semibold text-slate-900 mb-2">Validación QA y Formación</h3>
+                        <p data-i18n="step4_desc" class="text-xs text-slate-600 leading-relaxed">
+                            Pruebas funcionales sobre entorno de preproducción, verificación de seguridad del paciente y acompañamiento al personal clínico en la puesta en marcha.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 sm:p-5 rounded-xl bg-sky-50/60 border border-sky-200/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-sky-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <p data-i18n="method_note" class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            <strong>Enfoque de equipo:</strong> Mi formación en DAM me permite leer modelos de datos, comprender APIs y validar la viabilidad técnica sin invadir el terreno de arquitectura o desarrollo backend, asegurando una comunicación sin fricciones entre negocio clínico e IT.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="perfil" class="py-20 sm:py-24">
+            <div class="max-w-5xl mx-auto px-5 sm:px-8">
+                <div class="max-w-2xl mb-12">
+                    <span data-i18n="profile_eyebrow" class="text-xs font-semibold uppercase tracking-wider text-sky-700">Competencias</span>
+                    <h2 data-i18n="profile_title" class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1 mb-3">
+                        Perfil Híbrido: Clínica + Tecnología
+                    </h2>
+                    <p data-i18n="profile_subtitle" class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Combinación de experiencia asistencial directa en el sistema público de salud y formación reglada en desarrollo de software.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+                        <div class="flex items-center gap-3 mb-5 pb-4 border-b border-slate-100">
+                            <div class="w-9 h-9 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </div>
+                            <div>
+                                <h3 data-i18n="col1_title" class="font-semibold text-slate-900 text-base">Experiencia Asistencial y Clínica</h3>
+                                <p data-i18n="col1_subtitle" class="text-xs text-slate-500">Grado en Enfermería · Atención Primaria (SERMAS)</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sky-600 mt-2 shrink-0"></span>
+                                <span data-i18n="col1_item1"><strong>Operativa en Atención Primaria:</strong> Gestión de agendas de enfermería, triaje de urgencias, realización de pruebas diagnósticas y continuidad asistencial.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sky-600 mt-2 shrink-0"></span>
+                                <span data-i18n="col1_item2"><strong>Conocimiento profundo de HCE (APMadrid):</strong> Uso intensivo diario, detección de puntos de fallo, ergonomía clínica y gestión de episodios/CIPA.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sky-600 mt-2 shrink-0"></span>
+                                <span data-i18n="col1_item3"><strong>Seguridad del Paciente y Normativa:</strong> Prevención de errores de medicación/registro, trazabilidad clínica, RGPD y Esquema Nacional de Seguridad (ENS).</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sky-600 mt-2 shrink-0"></span>
+                                <span data-i18n="col1_item4"><strong>Telemedicina y Atención Remota:</strong> Valoración clínica estructurada y soporte protocolizado al paciente.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+                        <div class="flex items-center gap-3 mb-5 pb-4 border-b border-slate-100">
+                            <div class="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                            </div>
+                            <div>
+                                <h3 data-i18n="col2_title" class="font-semibold text-slate-900 text-base">Base Técnica y Estándares IT</h3>
+                                <p data-i18n="col2_subtitle" class="text-xs text-slate-500">Técnico Superior en Desarrollo de Aplicaciones (DAM)</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-6">
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-800 mt-2 shrink-0"></span>
+                                <span data-i18n="col2_item1"><strong>Interoperabilidad Sanitaria:</strong> Comprensión de mensajería sintáctica (HL7 v2, FHIR) y catálogos semánticos (CIE-10, LOINC, SNOMED CT).</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-800 mt-2 shrink-0"></span>
+                                <span data-i18n="col2_item2"><strong>Desarrollo y Datos:</strong> Conocimientos de programación orientada a objetos (Java 21, Spring Boot), diseño relacional y consultas SQL / PostgreSQL.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-800 mt-2 shrink-0"></span>
+                                <span data-i18n="col2_item3"><strong>Metodologías y Herramientas:</strong> Redacción de épicas e historias de usuario en Jira / Confluence, criterios Gherkin y flujos Agile / Scrum.</span>
+                            </li>
+                        </ul>
+
+                        <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-xs">HL7 v2 / FHIR</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-xs">CIE-10 / LOINC</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-xs">Java 21 · Spring Boot</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-xs">SQL · PostgreSQL</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-xs">Jira · Confluence</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-xs">Gherkin QA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="bg-white border-t border-slate-200 py-14">
+        <div class="max-w-5xl mx-auto px-5 sm:px-8">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-slate-100">
+                <div class="max-w-lg">
+                    <h2 data-i18n="footer_title" class="text-xl font-bold text-slate-900 mb-1.5">¿Hablamos sobre proyectos HealthTech?</h2>
+                    <p data-i18n="footer_desc" class="text-sm text-slate-600">
+                        Disponible para posiciones de Consultor Funcional, Analista de Procesos Clínicos o Product Owner Junior en entorno sanitario. Madrid / Híbrido / Remoto.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <button id="copyEmailBtn" onclick="copyEmail()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span id="copyEmailText">Copiar Email</span>
+                    </button>
+                    <button onclick="openContactModal()" data-i18n="btn_direct_msg" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white text-slate-700 border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors cursor-pointer">
+                        Mensaje Directo
+                    </button>
+                    <a href="https://www.linkedin.com/in/luis-enrique-zegarra-pretell-752bba191" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-sky-50 text-sky-800 border border-sky-200/80 text-sm font-medium hover:bg-sky-100 transition-colors">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p data-i18n="footer_copy">© 2026 Luis — Enfermero Clínico &amp; Consultor Funcional HealthTech.</p>
+                <p data-i18n="footer_loc" class="font-mono text-[11px] text-slate-400">Madrid, España · Portfolio de Especificaciones Funcionales</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toastNotification" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-lg shadow-lg border border-slate-700 flex items-center gap-2.5 text-sm">
+            <svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <span id="toastMessage">Correo copiado al portapapeles</span>
+        </div>
+    </div>
+
+    <div id="caseModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-slate-900/50 backdrop-blur-xs" onclick="closeCaseModalOnBackdrop(event)">
+        <div class="bg-white rounded-2xl border border-slate-200 max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-slate-50/70">
+                <div class="flex items-center gap-2.5">
+                    <span id="modalSpecId" class="px-2.5 py-0.5 rounded bg-slate-900 text-white font-mono text-xs font-medium">SPEC-01</span>
+                    <span id="modalCategory" class="text-xs font-semibold text-sky-700">Especificación Funcional</span>
+                </div>
+                <button onclick="closeCaseModal()" aria-label="Cerrar modal" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <div id="modalBody" class="p-6 sm:p-8 overflow-y-auto modal-scroll space-y-6 text-sm text-slate-700">
+            </div>
+
+            <div class="px-6 py-3.5 border-t border-slate-200 bg-slate-50/70 flex items-center justify-between">
+                <span id="modalFooterNote" class="text-xs text-slate-500">Documento estructurado para revisión técnica y QA</span>
+                <button id="modalCloseBtn" onclick="closeCaseModal()" class="px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800 transition-colors cursor-pointer">
+                    Cerrar Especificación
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs" onclick="closeContactModalOnBackdrop(event)">
+        <div class="bg-white rounded-2xl border border-slate-200 max-w-md w-full shadow-2xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-slate-50/70">
+                <h3 data-i18n="contact_modal_title" class="font-semibold text-slate-900 text-base">Enviar mensaje directo</h3>
+                <button onclick="closeContactModal()" aria-label="Cerrar contacto" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <form onsubmit="handleContactSubmit(event)" class="p-6 space-y-4">
+                <div>
+                    <label data-i18n="contact_lbl_name" class="block text-xs font-semibold text-slate-700 mb-1">Nombre / Empresa</label>
+                    <input id="contactInputName" type="text" required placeholder="Ej. Ana García — Dedalus / Consultoría" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-sky-600">
+                </div>
+                <div>
+                    <label data-i18n="contact_lbl_email" class="block text-xs font-semibold text-slate-700 mb-1">Correo electrónico</label>
+                    <input id="contactInputEmail" type="email" required placeholder="nombre@empresa.com" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-sky-600">
+                </div>
+                <div>
+                    <label data-i18n="contact_lbl_msg" class="block text-xs font-semibold text-slate-700 mb-1">Motivo de contacto</label>
+                    <textarea id="contactInputMsg" rows="3" required placeholder="Hola Luis, nos gustaría comentar una posición de Consultor Funcional HealthTech..." class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-sky-600"></textarea>
+                </div>
+                <div class="pt-2 flex justify-end gap-2.5">
+                    <button type="button" onclick="closeContactModal()" data-i18n="contact_btn_cancel" class="px-4 py-2 rounded-lg border border-slate-300 text-xs font-medium text-slate-700 hover:bg-slate-50 cursor-pointer">
+                        Cancelar
+                    </button>
+                    <button type="submit" data-i18n="contact_btn_send" class="px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800 cursor-pointer">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = localStorage.getItem('portfolio_lang') || 'es';
+        let activeCaseKey = null;
+
+        const i18nData = {
+            es: {
+                page_title: "Luis — Enfermero Clínico & Consultor Funcional HealthTech",
+                nav_cases: "Casos de Estudio",
+                nav_method: "Metodología",
+                nav_profile: "Perfil Híbrido",
+                nav_contact: "Contactar",
+                hero_badge: "Atención Primaria (SERMAS) · Desarrollo de Aplicaciones (DAM)",
+                hero_title_1: "Enfermero Clínico &",
+                hero_title_2: "Consultor Funcional HealthTech",
+                hero_desc: "Actúo como puente operativo entre la realidad asistencial de los centros sanitarios y los equipos de ingeniería de software. Traduzco flujos clínicos complejos, restricciones de sistemas heredados (<strong>APMadrid</strong>) y requisitos de interoperabilidad (<strong>HL7 / FHIR</strong>) en especificaciones funcionales claras, viables y seguras para el paciente.",
+                hero_cta_primary: "Ver Casos de Estudio",
+                hero_cta_secondary: "Contactar / Solicitar CV",
+                pillar1_title: "Dominio Asistencial",
+                pillar1_desc: "Flujos reales en Atención Primaria, triaje, urgencias vitales y seguridad clínica.",
+                pillar2_title: "Análisis Fit-Gap & Legacy",
+                pillar2_desc: "Diseño de soluciones de compromiso viables frente a HCE heredadas y rígidas.",
+                pillar3_title: "Base Técnica DAM",
+                pillar3_desc: "Interlocución directa con desarrollo: Java/Spring, SQL, APIs REST, HL7 y Gherkin.",
+                cases_eyebrow: "Portfolio Funcional",
+                cases_title: "Casos de Estudio y Especificaciones",
+                cases_subtitle: "Documentación funcional basada en cuellos de botella reales detectados en consulta. Selecciona cada caso para inspeccionar el análisis <em>As-Is / To-Be</em>, la matriz de riesgos y los criterios de aceptación.",
+                card1_badge: "Seguridad Clínica",
+                card1_title: "Escalado de Alertas de Urgencia Vital en Atención Primaria",
+                card1_desc: "Sustitución de avisos telefónicos manuales por enrutamiento inteligente según turno de guardia, doble confirmación anti-errores y escalado automático al equipo de retén tras 10 segundos.",
+                card1_tag1: "Flujos Críticos",
+                card1_tag3: "Auditoría ENS",
+                card2_badge: "Sistemas Legacy",
+                card2_title: "Digitalización de ECG y Convivencia con APMadrid",
+                card2_desc: "Eliminación del papel térmico y archivo manual mediante identificación por CIPA y exportación automatizada a repositorio en red securizado, evitando bloquear la HCE heredada.",
+                card3_badge: "Interoperabilidad",
+                card3_title: "Volcado Asistido de Constantes Vitales a HCE",
+                card3_desc: "Integración de monitores multiparamétricos mediante mensajería HL7/FHIR y codificación LOINC, incorporando una bandeja de pre-validación enfermera para filtrar lecturas artefactadas.",
+                card3_tag3: "Pre-validación",
+                card_btn: "Leer Especificación Completa",
+                method_eyebrow: "Proceso de Consultoría",
+                method_title: "De la Consulta al Código",
+                method_subtitle: "Un enfoque estructurado donde delimito claramente las fronteras del equipo: lidero la definición funcional y clínica (<strong>el \"Qué\" y el \"Por qué\"</strong>) para facilitar la arquitectura e implementación técnica de los desarrolladores (<strong>el \"Cómo\"</strong>).",
+                step1_eyebrow: "Fase Clínica · As-Is",
+                step1_title: "Detección en Consulta",
+                step1_desc: "Observación directa del flujo asistencial real, identificación de cuellos de botella, duplicidades de registro y puntos de fricción para el profesional sanitario.",
+                step2_eyebrow: "Viabilidad · Fit-Gap",
+                step2_title: "Análisis de Riesgos",
+                step2_desc: "Evaluación de restricciones del entorno (sistemas <em>legacy</em>, periféricos, carga asistencial) y negociación técnica con ingeniería para definir soluciones viables.",
+                step3_eyebrow: "Documentación · To-Be",
+                step3_title: "Especificación y Gherkin",
+                step3_desc: "Redacción de historias de usuario, reglas de negocio, esquemas de trazabilidad en base de datos y criterios de aceptación en formato Gherkin para QA.",
+                step4_eyebrow: "Entrega · Adopción",
+                step4_title: "Validación QA y Formación",
+                step4_desc: "Pruebas funcionales sobre entorno de preproducción, verificación de seguridad del paciente y acompañamiento al personal clínico en la puesta en marcha.",
+                method_note: "<strong>Enfoque de equipo:</strong> Mi formación en DAM me permite leer modelos de datos, comprender APIs y validar la viabilidad técnica sin invadir el terreno de arquitectura o desarrollo backend, asegurando una comunicación sin fricciones entre negocio clínico e IT.",
+                profile_eyebrow: "Competencias",
+                profile_title: "Perfil Híbrido: Clínica + Tecnología",
+                profile_subtitle: "Combinación de experiencia asistencial directa en el sistema público de salud y formación reglada en desarrollo de software.",
+                col1_title: "Experiencia Asistencial y Clínica",
+                col1_subtitle: "Grado en Enfermería · Atención Primaria (SERMAS)",
+                col1_item1: "<strong>Operativa en Atención Primaria:</strong> Gestión de agendas de enfermería, triaje de urgencias, realización de pruebas diagnósticas y continuidad asistencial.",
+                col1_item2: "<strong>Conocimiento profundo de HCE (APMadrid):</strong> Uso intensivo diario, detección de puntos de fallo, ergonomía clínica y gestión de episodios/CIPA.",
+                col1_item3: "<strong>Seguridad del Paciente y Normativa:</strong> Prevención de errores de medicación/registro, trazabilidad clínica, RGPD y Esquema Nacional de Seguridad (ENS).",
+                col1_item4: "<strong>Telemedicina y Atención Remota:</strong> Valoración clínica estructurada y soporte protocolizado al paciente.",
+                col2_title: "Base Técnica y Estándares IT",
+                col2_subtitle: "Técnico Superior en Desarrollo de Aplicaciones (DAM)",
+                col2_item1: "<strong>Interoperabilidad Sanitaria:</strong> Comprensión de mensajería sintáctica (HL7 v2, FHIR) y catálogos semánticos (CIE-10, LOINC, SNOMED CT).",
+                col2_item2: "<strong>Desarrollo y Datos:</strong> Conocimientos de programación orientada a objetos (Java 21, Spring Boot), diseño relacional y consultas SQL / PostgreSQL.",
+                col2_item3: "<strong>Metodologías y Herramientas:</strong> Redacción de épicas e historias de usuario en Jira / Confluence, criterios Gherkin y flujos Agile / Scrum.",
+                footer_title: "¿Hablamos sobre proyectos HealthTech?",
+                footer_desc: "Disponible para posiciones de Consultor Funcional, Analista de Procesos Clínicos o Product Owner Junior en entorno sanitario. Madrid / Híbrido / Remoto.",
+                btn_copy_email: "Copiar Email",
+                btn_copied_email: "¡Email Copiado!",
+                btn_direct_msg: "Mensaje Directo",
+                footer_copy: "© 2026 Luis — Enfermero Clínico & Consultor Funcional HealthTech.",
+                footer_loc: "Madrid, España · Portfolio de Especificaciones Funcionales",
+                toast_copied: "Dirección de correo copiada al portapapeles",
+                toast_sent: "Mensaje enviado correctamente. Gracias por contactar.",
+                modal_footer_note: "Documento estructurado para revisión técnica y QA",
+                modal_close_btn: "Cerrar Especificación",
+                contact_modal_title: "Enviar mensaje directo",
+                contact_lbl_name: "Nombre / Empresa",
+                contact_ph_name: "Ej. Ana García — Dedalus / Consultoría",
+                contact_lbl_email: "Correo electrónico",
+                contact_ph_email: "nombre@empresa.com",
+                contact_lbl_msg: "Motivo de contacto",
+                contact_ph_msg: "Hola Luis, nos gustaría comentar una posición de Consultor Funcional HealthTech...",
+                contact_btn_cancel: "Cancelar",
+                contact_btn_send: "Enviar Mensaje",
+                modal_sec1: "1. Contexto y Problema Real (As-Is)",
+                modal_sec2: "2. Restricciones del Entorno Clínico",
+                modal_sec3: "3. Propuesta Funcional (To-Be)",
+                modal_sec4: "4. Matriz de Riesgos y Mitigación",
+                modal_th_risk: "Riesgo Detectado",
+                modal_th_mit: "Medida de Mitigación Funcional",
+                modal_sec5: "5. Criterio de Aceptación (Gherkin QA)",
+                modal_sec6: "6. Modelo de Trazabilidad (SQL)",
+                modal_author: "Autor: Luis · Documentación Funcional HealthTech"
+            },
+            en: {
+                page_title: "Luis — Clinical Nurse & HealthTech Functional Consultant",
+                nav_cases: "Case Studies",
+                nav_method: "Methodology",
+                nav_profile: "Hybrid Profile",
+                nav_contact: "Contact",
+                hero_badge: "Primary Care (SERMAS) · Multiplatform Software Development (DAM)",
+                hero_title_1: "Clinical Nurse &",
+                hero_title_2: "HealthTech Functional Consultant",
+                hero_desc: "I act as an operational bridge between real-world healthcare delivery and software engineering teams. I translate complex clinical workflows, legacy EHR constraints (<strong>APMadrid</strong>), and interoperability standards (<strong>HL7 / FHIR</strong>) into clear, viable, and patient-safe functional specifications.",
+                hero_cta_primary: "Explore Case Studies",
+                hero_cta_secondary: "Contact / Request CV",
+                pillar1_title: "Clinical Domain",
+                pillar1_desc: "Hands-on Primary Care workflows, urgent triage, life-threatening alerts, and patient safety.",
+                pillar2_title: "Fit-Gap & Legacy Analysis",
+                pillar2_desc: "Designing pragmatic workarounds and architectures around rigid legacy EHR systems.",
+                pillar3_title: "Technical DAM Foundation",
+                pillar3_desc: "Direct fluency with engineering: Java/Spring, SQL, REST APIs, HL7, and Gherkin QA.",
+                cases_eyebrow: "Functional Portfolio",
+                cases_title: "Case Studies & Functional Specs",
+                cases_subtitle: "Functional documentation grounded in real clinical bottlenecks observed in outpatient care. Select any case to inspect the <em>As-Is / To-Be</em> analysis, risk matrix, and acceptance criteria.",
+                card1_badge: "Clinical Safety",
+                card1_title: "Life-Threatening Emergency Alert Escalation in Primary Care",
+                card1_desc: "Replacing manual landline calls with shift-aware smart routing, anti-error double confirmation, and automatic escalation to the backup team after a 10-second timeout.",
+                card1_tag1: "Critical Workflows",
+                card1_tag3: "ENS Audit Log",
+                card2_badge: "Legacy Systems",
+                card2_title: "ECG Digitalization & Coexistence with Legacy EHR (APMadrid)",
+                card2_desc: "Eliminating thermal paper and manual filing through CIPA patient ID matching and automated export to a secured network repository without locking the legacy EHR.",
+                card3_badge: "Interoperability",
+                card3_title: "Assisted Vital Signs Ingestion into EHR",
+                card3_desc: "Integrating multiparameter monitors via HL7/FHIR messaging and LOINC coding, incorporating a nursing pre-validation inbox to filter out artifacted readings.",
+                card3_tag3: "Pre-validation",
+                card_btn: "Read Full Specification",
+                method_eyebrow: "Consulting Process",
+                method_title: "From Clinic to Code",
+                method_subtitle: "A structured approach with clear team boundaries: I lead functional and clinical definition (<strong>the \"What\" and \"Why\"</strong>) to enable clean technical architecture and delivery by developers (<strong>the \"How\"</strong>).",
+                step1_eyebrow: "Clinical Phase · As-Is",
+                step1_title: "On-Site Discovery",
+                step1_desc: "Direct observation of real clinical workflows, identifying bottlenecks, duplicate data entry, and points of friction for healthcare staff.",
+                step2_eyebrow: "Feasibility · Fit-Gap",
+                step2_title: "Risk & Constraint Analysis",
+                step2_desc: "Evaluating environmental constraints (<em>legacy</em> systems, peripherals, clinical workload) and negotiating viable solutions with engineering.",
+                step3_eyebrow: "Documentation · To-Be",
+                step3_title: "Functional Specs & Gherkin",
+                step3_desc: "Authoring user stories, business rules, database traceability schemas, and Gherkin acceptance criteria ready for QA automation.",
+                step4_eyebrow: "Delivery · Adoption",
+                step4_title: "QA Validation & Onboarding",
+                step4_desc: "Functional testing in staging environments, patient safety verification, and hands-on support for clinical staff during rollout.",
+                method_note: "<strong>Team Alignment:</strong> My software development degree allows me to read data models, understand APIs, and validate technical feasibility without overstepping into backend architecture, ensuring frictionless communication between clinical business and IT.",
+                profile_eyebrow: "Core Competencies",
+                profile_title: "Hybrid Profile: Clinical + Technology",
+                profile_subtitle: "Combining frontline clinical care experience in the public health system with formal software engineering training.",
+                col1_title: "Clinical & Healthcare Experience",
+                col1_subtitle: "B.Sc. in Nursing · Primary Care (SERMAS)",
+                col1_item1: "<strong>Primary Care Operations:</strong> Nursing schedule management, urgent triage, diagnostic testing, and longitudinal continuity of care.",
+                col1_item2: "<strong>Deep EHR Mastery (APMadrid):</strong> Intensive daily usage, failure-point detection, clinical ergonomics, and episode/CIPA ID management.",
+                col1_item3: "<strong>Patient Safety & Compliance:</strong> Medication/charting error prevention, clinical traceability, GDPR, and National Security Framework (ENS).",
+                col1_item4: "<strong>Telemedicine & Remote Care:</strong> Structured clinical assessment and protocol-driven patient support.",
+                col2_title: "Technical Base & Health IT Standards",
+                col2_subtitle: "Higher Technician in Multiplatform App Development (DAM)",
+                col2_item1: "<strong>Healthcare Interoperability:</strong> Syntactic messaging (HL7 v2, FHIR) and semantic terminologies (ICD-10, LOINC, SNOMED CT).",
+                col2_item2: "<strong>Development & Data:</strong> Object-oriented programming (Java 21, Spring Boot), relational database design, and SQL / PostgreSQL querying.",
+                col2_item3: "<strong>Methodologies & Tooling:</strong> Authoring epics and user stories in Jira / Confluence, Gherkin scenarios, and Agile / Scrum workflows.",
+                footer_title: "Let's talk about HealthTech projects",
+                footer_desc: "Open to Functional Consultant, Clinical Systems Analyst, or Junior Product Owner roles in Healthcare IT. Madrid / Hybrid / Remote.",
+                btn_copy_email: "Copy Email",
+                btn_copied_email: "Email Copied!",
+                btn_direct_msg: "Direct Message",
+                footer_copy: "© 2026 Luis — Clinical Nurse & HealthTech Functional Consultant.",
+                footer_loc: "Madrid, Spain · Functional Specifications Portfolio",
+                toast_copied: "Email address copied to clipboard",
+                toast_sent: "Message sent successfully. Thank you for reaching out.",
+                modal_footer_note: "Structured document for technical and QA review",
+                modal_close_btn: "Close Specification",
+                contact_modal_title: "Send a direct message",
+                contact_lbl_name: "Name / Company",
+                contact_ph_name: "e.g. Jane Doe — HealthTech Consulting",
+                contact_lbl_email: "Email address",
+                contact_ph_email: "name@company.com",
+                contact_lbl_msg: "Reason for reaching out",
+                contact_ph_msg: "Hi Luis, we would love to discuss a HealthTech Functional Consultant role...",
+                contact_btn_cancel: "Cancel",
+                contact_btn_send: "Send Message",
+                modal_sec1: "1. Context & Real-World Problem (As-Is)",
+                modal_sec2: "2. Clinical Environment Constraints",
+                modal_sec3: "3. Functional Proposal (To-Be)",
+                modal_sec4: "4. Risk & Mitigation Matrix",
+                modal_th_risk: "Identified Risk",
+                modal_th_mit: "Functional Mitigation Measure",
+                modal_sec5: "5. Acceptance Criteria (Gherkin QA)",
+                modal_sec6: "6. Traceability Data Model (SQL)",
+                modal_author: "Author: Luis · HealthTech Functional Documentation"
+            }
+        };
+
+        const casesData = {
+            es: {
+                case1: {
+                    id: 'SPEC-01',
+                    category: 'Flujos Críticos y Seguridad Clínica',
+                    title: 'Optimización y Escalado de Alertas de Urgencia Vital en Atención Primaria',
+                    context: 'En los Centros de Salud de Atención Primaria, los avisos de urgencia vital (adulto o pediátrica) suelen realizarse mediante llamadas telefónicas internas o megafonía. Esto genera retrasos críticos si el facultativo de guardia está en consulta, no distingue la naturaleza de la urgencia y, si se opta por alertas masivas indiscriminadas (broadcast), provoca cuellos de botella asistenciales y falsas alarmas por activaciones accidentales.',
+                    constraints: [
+                        'Evitar atajos de teclado directos sin confirmación (riesgo de pulsación accidental durante limpieza de periféricos).',
+                        'No saturar las pantallas de todo el centro de salud; notificar únicamente al equipo responsable del tramo horario.',
+                        'Garantizar redundancia operativa si el equipo primario se encuentra ocupado en una intervención.'
+                    ],
+                    solution: [
+                        '<strong>Parametrización de Guardia:</strong> Al inicio de cada turno (mañana/tarde), el responsable clínico asigna en el sistema el equipo titular de urgencias y el equipo de retén.',
+                        '<strong>Disparo Diferenciado + Doble Check:</strong> Desde Admisión se selecciona "Urgencia Vital Adulto" o "Pediátrica", validando mediante una ventana modal rápida de doble confirmación.',
+                        '<strong>Enrutamiento Selectivo y Escalado (Timeout 10s):</strong> La alerta visual y sonora salta solo en las terminales del equipo de guardia. Si nadie confirma recepción en 10 segundos, escala automáticamente al equipo de retén.'
+                    ],
+                    risks: [
+                        { risk: 'Falsos positivos por periféricos', mitigation: 'Modal obligatorio de doble confirmación en interfaz.' },
+                        { risk: 'Silencio operativo (guardia ocupada)', mitigation: 'Temporizador automático de 10s con escalado a retén.' },
+                        { risk: 'Turno sin parametrizar a primera hora', mitigation: 'Aviso recordatorio obligatorio y derivación por defecto a Coordinación.' }
+                    ],
+                    gherkin: 'Dado que Admisión selecciona "Urgencia Vital Pediátrica" y valida el doble check,\nCuando transcurren 10 segundos sin que el equipo titular pulse "Aceptar",\nEntonces la alerta escala automáticamente al equipo de retén registrando escalado_reten = TRUE.',
+                    dataModel: 'auditoria_alertas (id_alerta PK, tipo_urgencia, timestamp_emision, id_emisor, id_receptor, escalado_reten, tiempo_respuesta_seg)'
+                },
+                case2: {
+                    id: 'SPEC-02',
+                    category: 'Digitalización y Convivencia con Sistemas Legacy',
+                    title: 'Digitalización de Electrocardiogramas y Convivencia con Sistemas Legacy (APMadrid)',
+                    context: 'La realización de electrocardiogramas (ECG) en Atención Primaria depende habitualmente del papel térmico: se imprime el trazado, se entrega en mano y el facultativo transcribe manualmente los parámetros (eje, QRS, segmento ST) en la HCE (APMadrid). Intentar forzar integraciones bidireccionales directas contra sistemas autonómicos heredados provoca inestabilidad, bloqueos de sesión y errores críticos.',
+                    constraints: [
+                        'APMadrid es un sistema legacy rígido donde las cargas automáticas externas en tiempo real son técnicamente inviables o inestables.',
+                        'Delegar en el personal auxiliar (TCAE) la creación manual de carpetas por paciente genera sobrecarga administrativa y errores de archivo.',
+                        'Los electrocardiógrafos de consulta requieren un método rápido de identificación para no retrasar la atención.'
+                    ],
+                    solution: [
+                        '<strong>Identificación Pre-Prueba por CIPA:</strong> Antes de registrar el trazado, enfermería introduce el CIPA/NHC del paciente en el equipo (idealmente mediante lector de código de barras).',
+                        '<strong>Exportación Estandarizada a Capa Intermedia:</strong> El equipo exporta automáticamente el fichero en formato <code>PDF/A</code> hacia una carpeta en red securizada del centro, renombrándolo sin intervención humana como <code>[CIPA]_[Fecha]_[Hora]_ECG.pdf</code>.',
+                        '<strong>Desacoplamiento Seguro:</strong> El facultativo consulta el trazado en alta resolución filtrando por CIPA o fecha desde el repositorio compartido, registrando la valoración clínica en APMadrid sin comprometer su rendimiento.'
+                    ],
+                    risks: [
+                        { risk: 'Caída o bloqueo del sistema legacy', mitigation: 'Desacoplamiento mediante repositorio intermedio en red local.' },
+                        { risk: 'Error al teclear CIPA en el equipo', mitigation: 'Uso de lector de código de barras sobre TSI o volante de petición.' },
+                        { risk: 'Acceso no autorizado a trazados', mitigation: 'Permisos restringidos por Directorio Activo (perfiles asistenciales ENS).' }
+                    ],
+                    gherkin: 'Dado que el personal de enfermería introduce un CIPA válido en el electrocardiógrafo,\nCuando finaliza el registro y confirma el guardado,\nEntonces el sistema exporta el archivo [CIPA]_[Fecha]_[Hora]_ECG.pdf en la ruta compartida sin creación manual de carpetas.',
+                    dataModel: 'registro_ecg_digital (id_prueba PK, cipa_paciente, fecha_hora_registro, ruta_archivo_pdf, estado_revision)'
+                },
+                case3: {
+                    id: 'SPEC-03',
+                    category: 'Interoperabilidad Clínica y Calidad del Dato',
+                    title: 'Interoperabilidad y Volcado Asistido de Constantes Vitales a HCE',
+                    context: 'La toma de constantes vitales (TA, FC, SatO2, Temperatura) en triaje o consulta de enfermería obliga a una doble transcripción: lectura en el monitor y tecleo manual en la estación clínica. Esta duplicidad consume tiempo asistencial valioso y expone el historial a errores humanos de transcripción en picos de demanda.',
+                    constraints: [
+                        'En Atención Primaria no se utilizan pulseras identificativas con código de barras (a diferencia de hospitalización); la vinculación debe apoyarse en el contexto de sesión activa del paciente.',
+                        'Un volcado 100% automático sin supervisión clínica puede introducir valores artefactados (ej. saturación baja por dedo frío o manguito mal ajustado).'
+                    ],
+                    solution: [
+                        '<strong>Vinculación por Contexto de Sesión:</strong> El monitor conectado asocia la toma al paciente que el enfermero mantiene activo en su estación clínica.',
+                        '<strong>Mensajería Estándar (HL7 / FHIR + LOINC):</strong> Transmisión al bus de integración mediante mensajes HL7 v2 (<code>ORU^R01</code>) o recursos FHIR <code>Observation</code>, normalizando cada parámetro con códigos semánticos LOINC.',
+                        '<strong>Bandeja de Pre-validación Enfermera:</strong> Los datos entran en la HCE en estado <em>"Pendiente de validar"</em>. El profesional los revisa en pantalla y consolida en la gráfica con un solo clic (o descarta artefactos).'
+                    ],
+                    risks: [
+                        { risk: 'Registro de lecturas clínicas artefactadas', mitigation: 'Estado obligatorio de Pre-validación humana antes de publicación definitiva.' },
+                        { risk: 'Volcado en episodio cerrado o erróneo', mitigation: 'Validación previa en bus de integración con rechazo ACK AE si no hay episodio activo.' },
+                        { risk: 'Incompatibilidad entre fabricantes', mitigation: 'Normalización semántica estricta mediante catálogo LOINC.' }
+                    ],
+                    gherkin: 'Dado que el monitor envía un mensaje HL7 ORU^R01 con códigos LOINC válidos para un episodio activo,\nCuando el enfermero abre la hoja de constantes del paciente,\nEntonces los valores aparecen precargados como "Pendiente de validar" listos para confirmación en un clic.',
+                    dataModel: 'auditoria_integracion_constantes (id_integracion PK, nhc_paciente, id_episodio, codigo_loinc, valor_medido, estado_validacion, id_validador)'
+                }
+            },
+            en: {
+                case1: {
+                    id: 'SPEC-01',
+                    category: 'Critical Workflows & Clinical Safety',
+                    title: 'Optimization & Escalation of Life-Threatening Emergency Alerts in Primary Care',
+                    context: 'In Primary Care Health Centers, life-threatening emergency alerts (adult or pediatric) typically rely on internal landline calls or overhead paging. This causes critical delays if the on-call physician is in a consultation, fails to distinguish the clinical nature of the emergency, and—if indiscriminate broadcast alerts are used—creates clinical bottlenecks and false alarms from accidental triggers.',
+                    constraints: [
+                        'Avoid direct keyboard shortcuts without confirmation (high risk of accidental trigger while disinfecting peripherals).',
+                        'Prevent screen fatigue across the entire facility; notify only the clinical team assigned to the active shift.',
+                        'Ensure operational redundancy if the primary on-call team is currently occupied in another intervention.'
+                    ],
+                    solution: [
+                        '<strong>Shift Roster Parameterization:</strong> At the start of each shift (morning/afternoon), the clinical lead assigns the primary emergency team and the backup team in the system.',
+                        '<strong>Differentiated Trigger + Double Check:</strong> Front-desk/Triage selects "Adult Emergency" or "Pediatric Emergency", validating via a fast double-confirmation modal.',
+                        '<strong>Selective Routing & Escalation (10s Timeout):</strong> Visual and audio alerts fire exclusively on the on-call team\'s workstations. If unacknowledged within 10 seconds, the alert auto-escalates to the backup team.'
+                    ],
+                    risks: [
+                        { risk: 'False positives from peripheral cleaning', mitigation: 'Mandatory double-confirmation modal in UI.' },
+                        { risk: 'Operational silence (primary team busy)', mitigation: 'Automatic 10-second timer escalating to backup team.' },
+                        { risk: 'Unconfigured roster at shift start', mitigation: 'Mandatory startup prompt with fallback routing to Clinical Coordination.' }
+                    ],
+                    gherkin: 'Given Triage selects "Pediatric Life-Threatening Emergency" and confirms the double check,\nWhen 10 seconds elapse without the primary team clicking "Acknowledge",\nThen the alert automatically escalates to the backup team logging backup_escalated = TRUE.',
+                    dataModel: 'alert_audit_log (alert_id PK, emergency_type, emitted_at, sender_id, receiver_id, backup_escalated, response_time_sec)'
+                },
+                case2: {
+                    id: 'SPEC-02',
+                    category: 'Digitalization & Legacy System Coexistence',
+                    title: 'ECG Digitalization & Seamless Coexistence with Legacy EHR (APMadrid)',
+                    context: 'Electrocardiogram (ECG) workflows in Primary Care heavily rely on thermal paper: the waveform is printed, handed over physically, and the physician manually transcribes parameters (axis, QRS, ST segment) into the legacy EHR (APMadrid). Attempting direct real-time bidirectional integrations against rigid regional legacy systems causes instability, session locks, and critical errors.',
+                    constraints: [
+                        'APMadrid is a rigid legacy system where external real-time automated writes are technically unfeasible or unstable.',
+                        'Delegating manual per-patient folder creation to nursing assistants (TCAE) creates administrative overhead and filing errors.',
+                        'Point-of-care ECG devices require a fast patient identification workflow to avoid consultation delays.'
+                    ],
+                    solution: [
+                        '<strong>Pre-Test Identification via CIPA ID:</strong> Before capturing the trace, the nurse enters the patient\'s CIPA/MRN into the device (ideally via barcode scanner).',
+                        '<strong>Standardized Export to Middleware Layer:</strong> The device automatically exports the file in <code>PDF/A</code> format to a secured network folder, renaming it without human intervention as <code>[CIPA]_[Date]_[Time]_ECG.pdf</code>.',
+                        '<strong>Safe Decoupling:</strong> The physician views the high-resolution trace filtering by CIPA or date from the shared repository, charting the clinical assessment in APMadrid without impacting core EHR performance.'
+                    ],
+                    risks: [
+                        { risk: 'Legacy EHR crash or session freeze', mitigation: 'Decoupling via intermediate local network repository.' },
+                        { risk: 'Manual CIPA typing error on ECG device', mitigation: 'Barcode scanner input from health card or order slip.' },
+                        { risk: 'Unauthorized access to ECG files', mitigation: 'Active Directory role-based permissions (ENS clinical profiles).' }
+                    ],
+                    gherkin: 'Given the nurse enters a valid CIPA ID into the electrocardiograph,\nWhen the trace finishes and saving is confirmed,\nThen the system exports [CIPA]_[Date]_[Time]_ECG.pdf to the shared path without manual folder creation.',
+                    dataModel: 'digital_ecg_registry (test_id PK, patient_cipa, recorded_at, pdf_file_path, review_status)'
+                },
+                case3: {
+                    id: 'SPEC-03',
+                    category: 'Clinical Interoperability & Data Quality',
+                    title: 'Interoperability & Assisted Vital Signs Ingestion into EHR',
+                    context: 'Measuring vital signs (BP, HR, SpO2, Temperature) in triage or nursing consultations forces double transcription: reading the monitor and manually typing values into the clinical workstation. This duplication consumes valuable clinical time and exposes patient charts to human transcription errors during peak demand.',
+                    constraints: [
+                        'Primary Care patients do not wear barcode wristbands (unlike inpatient settings); device-patient binding must rely on the active EHR workstation session context.',
+                        'A 100% unverified automatic write can inject artifacted readings (e.g., false low SpO2 due to cold extremities or cuff misplacement) directly into the medical record.'
+                    ],
+                    solution: [
+                        '<strong>Session-Context Binding:</strong> The connected monitor binds measurements to the patient currently open in the nurse\'s active workstation session.',
+                        '<strong>Standard Messaging (HL7 / FHIR + LOINC):</strong> Transmission to the integration engine via HL7 v2 (<code>ORU^R01</code>) messages or FHIR <code>Observation</code> resources, normalizing every parameter with LOINC semantic codes.',
+                        '<strong>Nursing Pre-Validation Inbox:</strong> Data lands in the EHR with status <em>"Pending Validation"</em>. The nurse reviews values on-screen and commits them to the flowsheet in one click (or discards artifacts).'
+                    ],
+                    risks: [
+                        { risk: 'Charting artifacted clinical readings', mitigation: 'Mandatory human pre-validation state before final publication.' },
+                        { risk: 'Posting to a closed or wrong episode', mitigation: 'Integration engine check returning ACK AE rejection if no active episode exists.' },
+                        { risk: 'Multi-vendor device incompatibility', mitigation: 'Strict semantic normalization using LOINC terminology.' }
+                    ],
+                    gherkin: 'Given the monitor sends an HL7 ORU^R01 message with valid LOINC codes for an active episode,\nWhen the nurse opens the patient\'s vital signs flowsheet,\nThen the values appear pre-loaded as "Pending Validation" ready for one-click sign-off.',
+                    dataModel: 'vitals_integration_audit (integration_id PK, patient_mrn, episode_id, loinc_code, measured_value, validation_status, validator_id)'
+                }
+            }
+        };
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('portfolio_lang', lang);
+            document.documentElement.lang = lang;
+
+            const dict = i18nData[lang];
+            if (!dict) return;
+
+            document.title = dict.page_title;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerHTML = dict[key];
+                }
+            });
+
+            const inputName = document.getElementById('contactInputName');
+            const inputEmail = document.getElementById('contactInputEmail');
+            const inputMsg = document.getElementById('contactInputMsg');
+            if (inputName) inputName.placeholder = dict.contact_ph_name;
+            if (inputEmail) inputEmail.placeholder = dict.contact_ph_email;
+            if (inputMsg) inputMsg.placeholder = dict.contact_ph_msg;
+
+            const copyEmailText = document.getElementById('copyEmailText');
+            if (copyEmailText) copyEmailText.textContent = dict.btn_copy_email;
+
+            const modalFooterNote = document.getElementById('modalFooterNote');
+            if (modalFooterNote) modalFooterNote.textContent = dict.modal_footer_note;
+
+            const modalCloseBtn = document.getElementById('modalCloseBtn');
+            if (modalCloseBtn) modalCloseBtn.textContent = dict.modal_close_btn;
+
+            const langBtn = document.getElementById('langToggleBtn');
+            if (langBtn) {
+                langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
+            }
+
+            if (activeCaseKey && !document.getElementById('caseModal').classList.contains('hidden')) {
+                openCaseModal(activeCaseKey);
+            }
+        }
+
+        function toggleLanguage() {
+            const nextLang = currentLang === 'es' ? 'en' : 'es';
+            applyLanguage(nextLang);
+        }
+
+        function openCaseModal(caseKey) {
+            activeCaseKey = caseKey;
+            const data = casesData[currentLang][caseKey];
+            const dict = i18nData[currentLang];
+            if (!data || !dict) return;
+
+            document.getElementById('modalSpecId').textContent = data.id;
+            document.getElementById('modalCategory').textContent = data.category;
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 leading-snug mb-2">${data.title}</h3>
+                    <p class="text-xs font-mono text-slate-500">${dict.modal_author}</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">${dict.modal_sec1}</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">${data.context}</p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2">${dict.modal_sec2}</h4>
+                    <ul class="space-y-1.5 text-sm text-slate-600">
+                        ${data.constraints.map(c => `<li class="flex items-start gap-2"><span class="text-sky-600 font-bold">•</span><span>${c}</span></li>`).join('')}
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2">${dict.modal_sec3}</h4>
+                    <ol class="space-y-2 text-sm text-slate-600 list-decimal list-inside">
+                        ${data.solution.map(s => `<li class="leading-relaxed">${s}</li>`).join('')}
+                    </ol>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2">${dict.modal_sec4}</h4>
+                    <div class="overflow-x-auto border border-slate-200 rounded-lg">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-800 border-b border-slate-200">
+                                    <th class="py-2 px-3 font-semibold">${dict.modal_th_risk}</th>
+                                    <th class="py-2 px-3 font-semibold">${dict.modal_th_mit}</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                ${data.risks.map(r => `
+                                    <tr>
+                                        <td class="py-2 px-3 font-medium text-slate-800">${r.risk}</td>
+                                        <td class="py-2 px-3 text-slate-600">${r.mitigation}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-200/80">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-sky-900 mb-1.5">${dict.modal_sec5}</h4>
+                        <pre class="font-mono text-xs text-slate-800 whitespace-pre-wrap leading-relaxed">${data.gherkin}</pre>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-900 text-slate-200">
+                        <h4 class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1">${dict.modal_sec6}</h4>
+                        <code class="font-mono text-xs text-sky-300 break-all">${data.dataModel}</code>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('caseModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCaseModal() {
+            activeCaseKey = null;
+            const modal = document.getElementById('caseModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function closeCaseModalOnBackdrop(event) {
+            if (event.target.id === 'caseModal') {
+                closeCaseModal();
+            }
+        }
+
+        function openContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function closeContactModalOnBackdrop(event) {
+            if (event.target.id === 'contactModal') {
+                closeContactModal();
+            }
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            closeContactModal();
+            event.target.reset();
+            showToast(i18nData[currentLang].toast_sent);
+        }
+
+        function copyEmail() {
+            const email = 'luisen.healthtech@gmail.com';
+            const dict = i18nData[currentLang];
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                const btnText = document.getElementById('copyEmailText');
+                btnText.textContent = dict.btn_copied_email;
+                showToast(dict.toast_copied);
+                setTimeout(() => {
+                    btnText.textContent = i18nData[currentLang].btn_copy_email;
+                }, 2500);
+            } catch (err) {
+                showToast('Email: ' + email);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCaseModal();
+                closeContactModal();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>
