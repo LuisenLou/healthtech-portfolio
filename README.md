@@ -16,7 +16,7 @@ Repositorio que contiene el diseño, la documentación funcional y la interfaz d
 ## 🌐 Enlace en vivo
 Puedes ver la página funcionando en [GitHub Pages](https://LuisenLou.github.io/healthtech-portfolio/).
 
----
+<hr style="height:3px; border:none; background-color:#0d6efd; margin:2rem 0;">
 
 # HealthTech Functional & Clinical Portfolio (English)
 
