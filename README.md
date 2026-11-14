@@ -6,6 +6,7 @@ Repositorio que contiene el diseño, la documentación funcional y la interfaz d
 - **Caso 1:** Optimización de Alertas de Urgencia Vital en AP (Flujos por turnos y doble check).
 - **Caso 2:** Digitalización de Electrocardiogramas y Convivencia con Sistemas Legacy (APMadrid).
 - **Caso 3:** El puente funcional-técnico (Traducción de requerimientos clínicos a especificaciones de desarrollo).
+- - **Caso 4:** Automatización de Inventario de Sensores con PowerShell y OCR (Solución de campo en entorno clínico restringido).
 
 ## 🛠️ Tecnologías utilizadas
 - HTML5 / Tailwind CSS (Diseño editorial y ultraligero).
@@ -24,6 +25,7 @@ Repository containing the design, functional documentation, and presentation int
 - **Case 1:** Optimization of Life-Threatening Emergency Alerts in PC (Shift-based workflows and double check).
 - **Case 2:** Digitization of Electrocardiograms and Coexistence with Legacy Systems (APMadrid).
 - **Case 3:** The functional-technical bridge (Translation of clinical requirements into development specifications).
+- **Case 4:** Sensor Inventory Automation via PowerShell & OCR (Field automation in restricted clinical environments).
 
 ## 🛠️ Technologies used
 - HTML5 / Tailwind CSS (Editorial and ultralight design).
