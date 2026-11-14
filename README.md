@@ -1,4 +1,4 @@
-# HealthTech Functional & Clinical Portfolio
+# HealthTech Functional & Clinical Portfolio (Español)
 
 Repositorio que contiene el diseño, la documentación funcional y la interfaz de presentación de casos de estudio en el sector de la tecnología sanitaria (*HealthTech*). Este proyecto sirve como escaparate para demostrar la intersección entre los flujos asistenciales reales de Atención Primaria y la ingeniería de software.
 
@@ -15,6 +15,8 @@ Repositorio que contiene el diseño, la documentación funcional y la interfaz d
 ## 🌐 Enlace en vivo
 Puedes ver la página funcionando en [GitHub Pages](LuisenLou.github.io/healthtech-portfolio/).
 
+
+# HealthTech Functional & Clinical Portfolio (English)
 
 Repository containing the design, functional documentation, and presentation interface for case studies in the healthcare technology (*HealthTech*) sector. This project serves as a showcase to demonstrate the intersection between real Primary Care healthcare workflows and software engineering.
 
