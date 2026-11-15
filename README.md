@@ -12,6 +12,7 @@ Repositorio que contiene el diseño, la documentación funcional y la interfaz d
 - HTML5 / Tailwind CSS (Diseño editorial y ultraligero).
 - JavaScript nativo para interactividad limpia.
 - Arquitectura orientada a especificaciones funcionales (Gherkin, flujos de usuario, matrices de riesgo).
+- Web3Forms API (Pasarela serverless para recepción de contacto sin servidor propio).
 
 
 ## 🧩 Decisiones de alcance
@@ -26,6 +27,7 @@ Decisiones conscientes:
   casos, filtros). Framework innecesario para el alcance.
 - **Sin tests**: no hay lógica de negocio que testear. Los "tests"
   aquí son los escenarios Gherkin documentados.
+- **Contacto serverless (Web3Forms)**: al no existir backend, el envío del formulario se delega en una API externa vía fetch asíncrono con protección honeypot, evitando levantar infraestructura solo para gestionar mensajes.
 
 👉 Si buscas un ejemplo de arquitectura escalable, este no es el repo.
    Si buscas un ejemplo de traducción clínico-técnica, sí.
@@ -54,6 +56,7 @@ Repository containing the design, functional documentation, and presentation int
 - HTML5 / Tailwind CSS (Editorial and ultralight design).
 - Native JavaScript for clean interactivity.
 - Architecture oriented toward functional specifications (Gherkin, user flows, risk matrices).
+- Web3Forms API (Serverless gateway for contact reception without your own server).
 
 # 🧩 Scope Decisions
 
@@ -63,6 +66,7 @@ Conscious decisions:
 - **Static HTML + Tailwind CDN**: the goal is for the functional documentation to be legible and deployable with zero friction. There is no backend because there is no state to persist.
 - **Vanilla JS**: the interactivity is presentational (navigation between cases, filters). A framework is unnecessary for this scope.
 - **No tests**: there is no business logic to test. The "tests" here are the documented Gherkin scenarios.
+- **Serverless contact (Web3Forms)**: since there is no backend, form submission is delegated to an external API via asynchronous fetch with honeypot protection, avoiding the need to spin up infrastructure just to manage messages.
 
 👉 If you're looking for an example of scalable architecture, this is not the repo.
    If you're looking for an example of clinical-technical translation, it is.
